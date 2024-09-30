@@ -1,0 +1,21 @@
+# CLion
+cmake-build-debug
+.idea
+
+# colcon
+build
+log
+install
+cmake-build-*
+
+# CMake ExternalProject directory
+performance_test/libs
+
+# Jupyter environments and checkpoints
+venv
+plotter/.ipynb_checkpoints
+
+__pycache__
+
+# bazel artifacts
+bazel-*
