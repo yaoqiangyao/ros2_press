@@ -99,14 +99,16 @@ void SubscriberStats::update_lost_samples_counter(const std::uint64_t sample_id)
   // We can lose samples, but samples always arrive in the right order and
   // no duplicates exist.
   if (sample_id <= m_prev_sample_id) {
-    throw std::runtime_error(
-            "Data not consistent: received sample with not strictly greater id."
-            " Received sample id: " +
-            std::to_string(sample_id) +
-            " Previous sample id: " + std::to_string(m_prev_sample_id));
+//    throw std::runtime_error(
+//            "Data not consistent: received sample with not strictly greater id."
+//            " Received sample id: " +
+//            std::to_string(sample_id) +
+//            " Previous sample id: " + std::to_string(m_prev_sample_id));
+    m_num_lost_samples += 1;
+  } else {
+    m_num_lost_samples += sample_id - m_prev_sample_id - 1;
+    m_prev_sample_id = sample_id;
   }
-  m_num_lost_samples += sample_id - m_prev_sample_id - 1;
-  m_prev_sample_id = sample_id;
 }
 
 void SubscriberStats::add_latency_to_statistics(

@@ -25,7 +25,7 @@ set(OPTIONAL_LIBRARIES)
 # Default to C++17
 set(CMAKE_CXX_STANDARD 17)
 find_package(ament_cmake REQUIRED)
-
+find_package(std_msgs REQUIRED)
 find_package(Threads REQUIRED)
 
 find_package(ament_cmake REQUIRED)
@@ -519,7 +519,7 @@ if(PERFORMANCE_TEST_RCLCPP_ENABLED OR PERFORMANCE_TEST_ICEORYX_ENABLED)
 endif()
 
 if(PERFORMANCE_TEST_RCLCPP_ENABLED)
-  ament_target_dependencies(${EXE_NAME} "rclcpp")
+  ament_target_dependencies(${EXE_NAME} "rclcpp" "std_msgs")
 endif()
 
 if(PERFORMANCE_TEST_APEX_OS_POLLING_SUBSCRIPTION_ENABLED)
@@ -530,10 +530,10 @@ if(PERFORMANCE_TEST_APEX_OS_POLLING_SUBSCRIPTION_ENABLED)
   endif()
   rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} ${TYPESUPPORT_INTERFACE})
   target_link_libraries(${EXE_NAME} ${cpp_typesupport_target})
-  ament_target_dependencies(${EXE_NAME} "rclcpp" "executor" "apexcpp")
+  ament_target_dependencies(${EXE_NAME} "rclcpp" "executor" "apexcpp" "std_msgs")
 endif()
 
-ament_target_dependencies(${EXE_NAME} ${OPTIONAL_AMENT_DEPENDENCES})
+ament_target_dependencies(${EXE_NAME} ${OPTIONAL_AMENT_DEPENDENCES} "std_msgs")
 
 target_link_libraries(
   ${EXE_NAME}
