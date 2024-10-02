@@ -5,8 +5,8 @@
 		"args": {
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
-	},
-	"remoteUser": "ros",
+	},   
+	"remoteUser": "yaoqiang",
 	"runArgs": [
 		"--network=host",
 		"--cap-add=SYS_PTRACE",

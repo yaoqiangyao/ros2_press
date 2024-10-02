@@ -6,6 +6,7 @@ cmake-build-debug
 build
 log
 install
+report
 cmake-build-*
 
 # CMake ExternalProject directory

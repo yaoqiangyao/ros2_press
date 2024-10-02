@@ -13,5 +13,7 @@ FROM althack/ros2:humble-full
 # ENV DEBIAN_FRONTEND=dialog
 
 # Set up auto-source of workspace for ros user
+RUN useradd -m -u 1001 -d /home/yaoqiang -s /bin/bash yaoqiang
+WORKDIR /home/yaoqiang
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc

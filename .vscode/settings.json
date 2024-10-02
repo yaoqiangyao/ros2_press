@@ -72,4 +72,6 @@
         ".devcontainer/devcontainer.json"
     ],
     "ament-task-provider.envSetup": "source /opt/ros/humble/setup.bash",
+    "cmake.options.statusBarVisibility": "visible",
+    "cmake.sourceDirectory": "/workspaces/ros_press/src/performance_test/performance_test",
 }
